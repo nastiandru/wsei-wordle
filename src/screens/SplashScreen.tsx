@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet,ImageBackground } from 'react-native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 
 type RootStackParamList = {
@@ -16,27 +16,52 @@ export default function SplashScreen({ navigation }: SplashScreenProps): JSX.Ele
   useEffect(() => {
     const timer = setTimeout(() => {
       navigation.navigate('Menu');
-    }, 3000);
+    }, 2000);
 
     return () => clearTimeout(timer);
   }, []);
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.text}>Wordle</Text>
-      <Text style={styles.text}>Nad projektem pracowali:{"\n"}Ihor Sukhorda {"\n"}Anastasiia Andrushkevych</Text>
-    </View>
+    <ImageBackground source={require('../splashscreen.jpg')} style={styles.backgroundImage}>
+      <View style={styles.container}>
+        <Text style={styles.title}>Wordle</Text>
+        <View style={styles.textContainer}>
+          <Text style={styles.text}>Nad projektem pracowali:</Text>
+          <Text style={styles.text}>Ihor Sukhorda</Text>
+          <Text style={styles.text}>Anastasiia Andrushkevych</Text>
+        </View>
+      </View>
+    </ImageBackground>
   );
 }
 
 const styles = StyleSheet.create({
+  backgroundImage: {
+    flex: 1,
+    resizeMode: 'cover',
+    justifyContent: 'center',
+  },
   container: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    padding: 20,
+    backgroundColor: 'rgba(0, 0, 0, 0.6)',
+  },
+  title: {
+    fontSize: 50,
+    fontWeight: 'bold',
+    color: '#ffffff',
+    marginBottom: 20,
+  },
+  textContainer: {
+    marginTop: '70%',
+    alignItems: 'center',
   },
   text: {
-    fontSize: 24,
-    fontWeight: 'bold',
+    fontSize: 18,
+    color: '#ffffff',
+    textAlign: 'center',
+    marginBottom: 10,
   },
 });
