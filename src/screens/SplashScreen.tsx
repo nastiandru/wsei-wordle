@@ -23,7 +23,8 @@ export default function SplashScreen({ navigation }: SplashScreenProps): JSX.Ele
 
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Splash Screen</Text>
+      <Text style={styles.text}>Wordle</Text>
+      <Text style={styles.text}>Nad projektem pracowali:{"\n"}Ihor Sukhorda {"\n"}Anastasiia Andrushkevych</Text>
     </View>
   );
 }
