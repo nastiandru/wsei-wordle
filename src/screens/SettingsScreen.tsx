@@ -13,9 +13,9 @@ export default function SettingsScreen(): JSX.Element {
     <View style={[styles.container, isDarkMode && styles.darkContainer]}>
       <View style={styles.buttonContainer}>
         <Button
-          title={isDarkMode ? "Змінити на світлу тему" : "Змінити на темну тему"}
+          title={isDarkMode ? 'Switch to Light Theme' : 'Switch to Dark Theme'}
           onPress={handleToggleTheme}
-          color="#f194ff"
+          color="#C71585"
         />
       </View>
     </View>
