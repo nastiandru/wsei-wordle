@@ -1,8 +1,12 @@
 import {StyleSheet, Text, View} from "react-native";
 import {LetterStatus} from "./LetterStatus";
 import {LetterState} from "./LetterState";
+import React, {useContext} from "react";
+import { ThemeContext } from "../ThemeContext";
 
 export default function Tile({ letter, status }: LetterState) {
+    const { isDarkMode } = useContext(ThemeContext);
+
     const containerStyles: any[] = [styles.container]
     const textStyles: any[] = [styles.text]
 
@@ -29,6 +33,10 @@ export default function Tile({ letter, status }: LetterState) {
         }
     }
 
+    if (isDarkMode) {
+        textStyles.push(styles.textDarkMode); // Колір тексту у темній темі
+      }
+
     return (
         <View style={containerStyles}>
             <Text style={textStyles}>{ letter }</Text>
@@ -44,7 +52,11 @@ const styles = StyleSheet.create({
         alignItems: "center",
         justifyContent: "center",
         margin: 5,
+        color: "#000000",
     },
+    textDarkMode: {
+        color: "#ffffff", 
+      },
     text: {
         fontSize: 32,
         fontWeight: "bold",
